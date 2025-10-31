@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true"
+    tools:context=".PatientDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header con nombre del paciente -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_patient_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre del Paciente"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121" />
+
+                <TextView
+                    android:id="@+id/tv_patient_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25 años"
+                    android:textSize="16sp"
+                    android:textColor="#757575"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Volver"
+                android:background="@drawable/button_outline"
+                android:textColor="#2196F3"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <!-- Botones de acción rápida -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btn_new_session"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/button_primary"
+                android:text="Nueva Sesión"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_call"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="0.5"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/button_outline"
+                android:text="📱"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_whatsapp"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="0.5"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/button_outline"
+                android:text="💬"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <!-- Información de Contacto -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INFORMACIÓN DE CONTACTO"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:background="#E3F2FD"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacto Principal"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_patient_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="555-1234 / email@example.com"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dirección"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_patient_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dirección del paciente"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacto de Emergencia"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_emergency_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contacto de emergencia"
+                android:textSize="16sp"
+                android:textColor="#212121" />
+
+        </LinearLayout>
+
+        <!-- Estado de Evolución y Pagos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <!-- Evolución -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="16dp"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="EVOLUCIÓN"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#4CAF50"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_total_sessions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8 sesiones"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121" />
+
+                <TextView
+                    android:id="@+id/tv_last_session"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Última: 15/01/2024"
+                    android:textSize="12sp"
+                    android:textColor="#757575" />
+
+                <TextView
+                    android:id="@+id/tv_progress_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Progreso positivo"
+                    android:textSize="14sp"
+                    android:textColor="#4CAF50"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <!-- Pagos -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_background"
+                android:padding="16dp"
+                android:layout_marginStart="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="PAGOS"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF9800" />
+
+                    <Button
+                        android:id="@+id/btn_add_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:text="+"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF"
+                        android:background="#FF9800"
+                        android:minWidth="24dp"
+                        android:minHeight="24dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_total_debt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#212121"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_last_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Último: 10/01/2024"
+                    android:textSize="12sp"
+                    android:textColor="#757575" />
+
+                <TextView
+                    android:id="@+id/tv_payment_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Al corriente"
+                    android:textSize="14sp"
+                    android:textColor="#4CAF50"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Información Médica -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INFORMACIÓN MÉDICA"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:background="#F3E5F5"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Historial Médico"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_medical_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Historial médico del paciente"
+                android:textSize="14sp"
+                android:textColor="#212121"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medicación Actual"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_current_medication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medicación actual"
+                android:textSize="14sp"
+                android:textColor="#212121" />
+
+        </LinearLayout>
+
+        <!-- Motivo de Consulta y Notas -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MOTIVO DE CONSULTA Y NOTAS"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:background="#E8F5E8"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Motivo Inicial de Consulta"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_initial_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Motivo de consulta inicial"
+                android:textSize="14sp"
+                android:textColor="#212121"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notas Adicionales"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notas adicionales"
+                android:textSize="14sp"
+                android:textColor="#212121" />
+
+        </LinearLayout>
+
+        <!-- Sesiones Recientes -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SESIONES RECIENTES"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:background="#FFF3E0"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recent_sessions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <TextView
+                android:id="@+id/tv_no_sessions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aún no hay sesiones registradas para este paciente.\nToca 'Nueva Sesión' para comenzar."
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:gravity="center"
+                android:padding="24dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- Botón Editar Paciente -->
+        <Button
+            android:id="@+id/btn_edit_patient"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/button_outline"
+            android:text="Editar Información del Paciente"
+            android:textColor="#2196F3"
+            android:textAllCaps="false"
+            android:layout_marginBottom="32dp" />
+
+    </LinearLayout>
+
+</ScrollView>

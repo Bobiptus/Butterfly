@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="#F9E9E9"
     android:fillViewport="true"
     tools:context=".LoginActivity">
 
@@ -15,37 +15,28 @@
 
         <!-- Logo/Icono de la App -->
         <ImageView
-            android:id="@+id/iv_logo"
+            android:id="@+id/app_logo"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="48dp"
-            android:contentDescription="Logo de la aplicación"
-            android:src="@drawable/ic_launcher_foreground" />
-
-        <!-- Título de la App -->
-        <TextView
+            android:layout_gravity="center"             android:layout_marginTop="48dp"
+            android:contentDescription="Logo de la aplicación Butterfly"
+            android:scaleType="fitCenter"
+            android:src="@drawable/butterfly_logo"    android:layout_marginBottom="16dp" />       <TextView
             android:id="@+id/tv_app_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
             android:text="Butterfly"
-            android:textColor="#2196F3"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            style="@style/TextTitle"                    android:textColor="@color/primary_color"     android:layout_marginTop="0dp" />
 
-        <!-- Subtítulo -->
         <TextView
             android:id="@+id/tv_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="Gestiona tu agenda y contactos profesionales"
-            android:textColor="#757575"
-            android:textSize="16sp"
-            android:gravity="center" />
+            android:text="Tu agenda en armonía, tu práctica con claridad"
+            style="@style/TextBodySecondary"             android:gravity="center" />
 
         <!-- Container para el formulario -->
         <LinearLayout
@@ -172,5 +163,7 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
 
 </ScrollView>

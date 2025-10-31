@@ -6,25 +6,51 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:theme="@style/Theme.Butterfly"
         tools:targetApi="31">
 
         <!-- Actividad de Login - Principal (punto de entrada) -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.App.Starting"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+
+        <!-- Actividad de Registro -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <!-- Actividad Principal (después del login) -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+
+        <!-- Actividad para crear pacientes -->
+        <activity
+            android:name=".CreatePatientActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Actividad para buscar pacientes -->
+        <activity
+            android:name=".SearchPatientActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Actividad para detalle de paciente -->
+        <activity
+            android:name=".PatientDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

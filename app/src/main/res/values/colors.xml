@@ -1,14 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Colores que ya tienes -->
-
-    <!-- AGREGAR estos colores para el login -->
-    <color name="primary_color">#2196F3</color>
-    <color name="primary_dark_color">#1976D2</color>
-    <color name="accent_color">#03DAC5</color>
-    <color name="background_color">#F5F5F5</color>
+    <!-- Colores Primarios de la App (tu paleta personalizada) -->
+    <color name="primary_color">#62BBC6</color>
+    <color name="primary_dark_color">#464646</color>
+    <color name="accent_color">#E9AB55</color>
+    <color name="background_color">#F9E9E9</color>
     <color name="surface_color">#FFFFFF</color>
     <color name="primary_text_color">#212121</color>
     <color name="secondary_text_color">#757575</color>
     <color name="tertiary_text_color">#9E9E9E</color>
     <color name="divider_color">#E0E0E0</color>
+
+    <!-- Aliases para compatibilidad con el theme -->
+    <color name="blue_primary">@color/primary_color</color>
+    <color name="blue_primary_dark">@color/primary_dark_color</color>
+    <color name="blue_accent">@color/accent_color</color>
+    <color name="blue_light">#E0F4F6</color> <!-- Versión clara del turquesa -->
+
+    <!-- Colores de Fondo -->
+    <color name="white">#FFFFFF</color>
+    <color name="background_gray">@color/background_color</color>
+    <color name="card_background">#FFFFFF</color>
+
+    <!-- Colores de Texto -->
+    <color name="text_primary">@color/primary_text_color</color>
+    <color name="text_secondary">@color/secondary_text_color</color>
+    <color name="text_tertiary">@color/tertiary_text_color</color>
+    <color name="text_hint">#BDBDBD</color>
+
+    <!-- Colores de Estado -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">@color/accent_color</color>
+    <color name="error">#E57373</color>
+    <color name="info">@color/primary_color</color>
+
+    <!-- Colores de Bordes -->
+    <color name="border_gray">@color/divider_color</color>
+
+    <!-- Colores de Secciones (adaptados a tu paleta) -->
+    <color name="section_header_bg">#E0F4F6</color> <!-- Turquesa claro -->
+    <color name="section_emergency">#FFF3E0</color> <!-- Naranja claro -->
+    <color name="section_medical">#F3E5F5</color> <!-- Morado claro -->
+    <color name="section_consultation">#E8F5E8</color> <!-- Verde claro -->
 </resources>

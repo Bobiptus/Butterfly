@@ -2,15 +2,9 @@ package com.example.butterfly
 
 import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.butterfly.database.DatabaseHelper
-import com.example.butterfly.database.User
 
 class LoginActivity : Activity() {
 
@@ -21,21 +15,25 @@ class LoginActivity : Activity() {
     private lateinit var cbRememberMe: CheckBox
 
     private lateinit var dbHelper: DatabaseHelper
-    private lateinit var sharedPreferences: SharedPreferences
+
+    companion object {
+        private const val PREFS_NAME = "ButterflyPrefs"
+        private const val KEY_USER_EMAIL = "user_email"
+
+        fun getCurrentUserEmail(activity: Activity): String? {
+            val prefs = activity.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+            return prefs.getString(KEY_USER_EMAIL, null)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         dbHelper = DatabaseHelper(this)
-        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-
         initViews()
         setupClickListeners()
-        loadRememberedData()
-
-        // Verificar si ya hay una sesión activa
-        checkExistingSession()
+        checkRememberedUser()
     }
 
     private fun initViews() {
@@ -48,12 +46,7 @@ class LoginActivity : Activity() {
 
     private fun setupClickListeners() {
         btnLogin.setOnClickListener {
-            val email = etEmail.text.toString().trim()
-            val password = etPassword.text.toString().trim()
-
-            if (validateLogin(email, password)) {
-                performLogin(email, password)
-            }
+            attemptLogin()
         }
 
         tvForgotPassword.setOnClickListener {
@@ -61,159 +54,94 @@ class LoginActivity : Activity() {
         }
     }
 
-    private fun validateLogin(email: String, password: String): Boolean {
-        if (email.isEmpty()) {
-            Toast.makeText(this, "Ingresa tu email", Toast.LENGTH_SHORT).show()
-            etEmail.requestFocus()
-            return false
-        }
+    private fun checkRememberedUser() {
+        val prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+        val rememberedEmail = prefs.getString(KEY_USER_EMAIL, null)
 
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(this, "Ingresa un email válido", Toast.LENGTH_SHORT).show()
+        if (rememberedEmail != null) {
+            etEmail.setText(rememberedEmail)
+            cbRememberMe.isChecked = true
+        }
+    }
+
+    private fun attemptLogin() {
+        val email = etEmail.text.toString().trim()
+        val password = etPassword.text.toString().trim()
+
+        // Validaciones
+        if (email.isEmpty()) {
+            Toast.makeText(this, "Por favor ingresa tu email", Toast.LENGTH_SHORT).show()
             etEmail.requestFocus()
-            return false
+            return
         }
 
         if (password.isEmpty()) {
-            Toast.makeText(this, "Ingresa tu contraseña", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Por favor ingresa tu contraseña", Toast.LENGTH_SHORT).show()
             etPassword.requestFocus()
-            return false
+            return
         }
 
-        if (password.length < 6) {
-            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()
-            etPassword.requestFocus()
-            return false
-        }
-
-        return true
-    }
-
-    private fun performLogin(email: String, password: String) {
-        Toast.makeText(this, "Validando credenciales...", Toast.LENGTH_SHORT).show()
-
-        // Autenticar con la base de datos
-        val isAuthenticated = dbHelper.authenticateUser(email, password)
-
-        if (isAuthenticated) {
-            // Obtener información del usuario
-            val user = dbHelper.getUserByEmail(email)
-
-            if (user != null) {
-                // Guardar sesión
-                saveLoginSession(user)
-
-                // Manejar "recordarme"
-                if (cbRememberMe.isChecked) {
-                    saveRememberedData(email)
-                } else {
-                    clearRememberedData()
-                }
-
-                Toast.makeText(this, "¡Bienvenido ${user.getDisplayName()}!", Toast.LENGTH_SHORT).show()
-
-                // Navegar a MainActivity
-                navigateToMainActivity()
+        // Autenticar
+        if (dbHelper.authenticateUser(email, password)) {
+            // Guardar email si "recordarme" está marcado
+            if (cbRememberMe.isChecked) {
+                saveUserEmail(email)
             } else {
-                Toast.makeText(this, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show()
+                clearSavedEmail()
             }
+
+            Toast.makeText(this, "¡Bienvenido!", Toast.LENGTH_SHORT).show()
+
+            // Ir a MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         } else {
             Toast.makeText(this, "Email o contraseña incorrectos", Toast.LENGTH_LONG).show()
-            etPassword.setText("") // Limpiar contraseña
-            etPassword.requestFocus()
         }
     }
 
     private fun showForgotPasswordDialog() {
-        // Por ahora mostrar un mensaje simple
-        Toast.makeText(this, "Función de recuperar contraseña próximamente", Toast.LENGTH_LONG).show()
+        val input = EditText(this)
+        input.inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        input.hint = "tu@email.com"
 
-        // TODO: Implementar recuperación de contraseña
+        val dialog = android.app.AlertDialog.Builder(this)
+            .setTitle("Recuperar Contraseña")
+            .setMessage("Ingresa tu correo electrónico:")
+            .setView(input)
+            .setPositiveButton("Enviar") { _, _ ->
+                val email = input.text.toString().trim()
+                if (email.isEmpty()) {
+                    Toast.makeText(this, "Ingresa tu email", Toast.LENGTH_SHORT).show()
+                } else if (dbHelper.isEmailExists(email)) {
+                    Toast.makeText(
+                        this,
+                        "Se ha enviado un enlace de recuperación a $email\n(Funcionalidad en desarrollo)",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    Toast.makeText(this, "Email no registrado", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton("Cancelar", null)
+            .create()
+
+        dialog.show()
     }
 
-    private fun saveLoginSession(user: User) {
-        sharedPreferences.edit().apply {
-            putBoolean(KEY_IS_LOGGED_IN, true)
-            putString(KEY_USER_EMAIL, user.email)
-            apply()
-        }
+    private fun saveUserEmail(email: String) {
+        val prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+        prefs.edit().putString(KEY_USER_EMAIL, email).apply()
     }
 
-    private fun saveRememberedData(email: String) {
-        sharedPreferences.edit().apply {
-            putString(KEY_REMEMBER_EMAIL, email)
-            apply()
-        }
-    }
-
-    private fun clearRememberedData() {
-        sharedPreferences.edit().apply {
-            remove(KEY_REMEMBER_EMAIL)
-            apply()
-        }
-    }
-
-    private fun loadRememberedData() {
-        val rememberedEmail = sharedPreferences.getString(KEY_REMEMBER_EMAIL, "")
-        if (!rememberedEmail.isNullOrEmpty()) {
-            etEmail.setText(rememberedEmail)
-            cbRememberMe.isChecked = true
-            etPassword.requestFocus()
-        }
-    }
-
-    private fun checkExistingSession() {
-        val isLoggedIn = sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
-        if (isLoggedIn) {
-            navigateToMainActivity()
-        }
-    }
-
-    private fun navigateToMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+    private fun clearSavedEmail() {
+        val prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+        prefs.edit().remove(KEY_USER_EMAIL).apply()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         dbHelper.close()
-    }
-
-    // Companion object con constantes y métodos estáticos
-    companion object {
-        private const val PREFS_NAME = "butterfly_prefs"
-        private const val KEY_REMEMBER_EMAIL = "remember_email"
-        private const val KEY_IS_LOGGED_IN = "is_logged_in"
-        private const val KEY_USER_EMAIL = "user_email"
-
-        // Método para obtener email del usuario logueado
-        fun getCurrentUserEmail(activity: Activity): String? {
-            val prefs = activity.getSharedPreferences(PREFS_NAME, Activity.MODE_PRIVATE)
-            return prefs.getString(KEY_USER_EMAIL, null)
-        }
-
-        // Método para verificar si hay usuario logueado
-        fun isUserLoggedIn(activity: Activity): Boolean {
-            val prefs = activity.getSharedPreferences(PREFS_NAME, Activity.MODE_PRIVATE)
-            return prefs.getBoolean(KEY_IS_LOGGED_IN, false)
-        }
-
-        // Método para cerrar sesión (llamar desde otras actividades)
-        fun performLogout(activity: Activity) {
-            val prefs = activity.getSharedPreferences(PREFS_NAME, Activity.MODE_PRIVATE)
-            prefs.edit().apply {
-                putBoolean(KEY_IS_LOGGED_IN, false)
-                remove(KEY_USER_EMAIL)
-                apply()
-            }
-
-            val intent = Intent(activity, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            activity.startActivity(intent)
-            if (activity is Activity) {
-                activity.finish()
-            }
-        }
     }
 }

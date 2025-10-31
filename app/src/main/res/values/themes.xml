@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Theme Base para la aplicación con tu paleta personalizada -->
+    <style name="Theme.Butterfly" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Colores Primarios -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_dark_color</item>
+        <item name="colorAccent">@color/accent_color</item>
 
-    <style name="Theme.Butterfly" parent="android:Theme.Material.Light.NoActionBar" />
+        <!-- Colores de Fondo -->
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:colorBackground">@color/surface_color</item>
+
+        <!-- Colores de Texto -->
+        <item name="android:textColorPrimary">@color/primary_text_color</item>
+        <item name="android:textColorSecondary">@color/secondary_text_color</item>
+
+        <!-- Action Bar -->
+        <item name="actionBarStyle">@style/CustomActionBar</item>
+    </style>
+
+    <!-- Action Bar personalizado -->
+    <style name="CustomActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@color/primary_color</item>
+        <item name="titleTextStyle">@style/ActionBarTitle</item>
+    </style>
+
+    <!-- Título del Action Bar -->
+    <style name="ActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilo para Botones Primarios -->
+    <style name="ButtonPrimary" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- Estilo para Botones Secundarios (Outline) -->
+    <style name="ButtonOutline" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_outline</item>
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- Estilo para Botones de Acento -->
+    <style name="ButtonAccent" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_accent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- Estilo para EditText -->
+    <style name="EditTextCustom" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+    </style>
+
+    <!-- Estilo para Cards -->
+    <style name="CardCustom">
+        <item name="android:background">@drawable/card_background</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!-- Estilos de Texto -->
+    <style name="TextTitle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextSubtitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextBody">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextBodySecondary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextCaption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+    </style>
+
+    <!-- Estilo para Headers de Sección -->
+    <style name="SectionHeader">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@color/section_header_bg</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+
+        <item name="windowSplashScreenAnimatedIcon">@drawable/butterfly_logo</item>
+
+        <item name="windowSplashScreenIconBackgroundColor">@color/surface_color</item>
+    </style>
+
 </resources>

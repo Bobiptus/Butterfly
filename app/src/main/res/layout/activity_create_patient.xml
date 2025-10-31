@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true"
+    tools:context=".CreatePatientActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo Paciente"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Información Básica -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INFORMACIÓN BÁSICA"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:layout_marginBottom="16dp"
+            android:background="#E3F2FD"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Nombre Completo * -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre Completo *"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_patient_name"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Nombre y apellidos del paciente"
+                android:inputType="textPersonName|textCapWords"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Teléfono -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono *"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_patient_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Número de teléfono"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email (opcional)"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_patient_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="correo@ejemplo.com"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Fecha de Nacimiento -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Nacimiento (opcional)"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_patient_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Toca para seleccionar fecha"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                android:drawablePadding="12dp" />
+
+        </LinearLayout>
+
+        <!-- Información de Contacto -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONTACTO DE EMERGENCIA"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:layout_marginBottom="16dp"
+            android:background="#FFF3E0"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Dirección -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dirección"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_patient_address"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Domicilio del paciente"
+                android:inputType="textPostalAddress"
+                android:maxLines="2"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Contacto de Emergencia -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacto de Emergencia"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_emergency_contact"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Nombre del contacto de emergencia"
+                android:inputType="textPersonName|textCapWords"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Teléfono de Emergencia -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono de Emergencia"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_emergency_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Teléfono del contacto de emergencia"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- Información Médica -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INFORMACIÓN MÉDICA"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:layout_marginBottom="16dp"
+            android:background="#F3E5F5"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Historial Médico -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Historial Médico Relevante"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_medical_history"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Enfermedades, cirugías, hospitalizaciones previas..."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:maxLines="4"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Medicación Actual -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medicación Actual"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_current_medication"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Medicamentos que toma actualmente..."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:maxLines="3"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- Motivo de Consulta -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MOTIVO DE CONSULTA"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:layout_marginBottom="16dp"
+            android:background="#E8F5E8"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Motivo Inicial * -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Motivo de Consulta Inicial *"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_initial_reason"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="¿Por qué el paciente busca atención psicológica? Describe los síntomas, situaciones o problemas principales..."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:maxLines="6"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Notas Adicionales -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notas Adicionales"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/et_notes"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Observaciones adicionales, impresiones iniciales..."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:maxLines="4"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- Botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_outline"
+                android:text="Cancelar"
+                android:textColor="#2196F3"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_save_patient"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/button_primary"
+                android:text="Guardar Paciente"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <!-- Nota sobre campos obligatorios -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* Campos obligatorios"
+            android:textColor="#9E9E9E"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+
+</ScrollView>

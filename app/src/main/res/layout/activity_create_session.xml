@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true"
+    tools:context=".CreateSessionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nueva Sesión"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Información de la Sesión -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INFORMACIÓN DE LA SESIÓN"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:background="#E3F2FD"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Fecha de la sesión -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de la Sesión *"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_session_date"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Toca para seleccionar fecha"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                android:drawablePadding="12dp" />
+
+            <!-- Hora de la sesión -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hora de la Sesión *"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_session_time"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Toca para seleccionar hora"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:drawableEnd="@android:drawable/ic_menu_recent_history"
+                android:drawablePadding="12dp" />
+
+            <!-- Duración -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duración (minutos) *"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_duration"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="60"
+                android:inputType="number"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Tipo de sesión -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de Sesión"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/sp_session_type"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:padding="12dp" />
+
+            <!-- Costo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Costo (opcional)"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_session_cost"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="0.00"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- ¿Pagado? -->
+            <CheckBox
+                android:id="@+id/cb_is_paid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sesión pagada"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+
+        <!-- Notas de la Sesión -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOTAS Y OBSERVACIONES"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:background="#F3E5F5"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Notas de la sesión -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notas de la Sesión *"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_session_notes"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Describe lo que sucedió en la sesión, temas tratados, avances, etc."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:maxLines="6"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Observaciones -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Observaciones Clínicas"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_observations"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Observaciones sobre el estado emocional, comportamiento, cambios notados..."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:maxLines="5"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Tareas/Homework -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tareas para el Paciente"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_homework"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Ejercicios, lecturas o tareas recomendadas para realizar entre sesiones..."
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:maxLines="4"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <!-- Próxima sesión -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Próxima Sesión Programada"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_next_session_date"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Toca para seleccionar fecha"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                android:drawablePadding="12dp" />
+
+        </LinearLayout>
+
+        <!-- Botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_outline"
+                android:text="Cancelar"
+                android:textColor="#2196F3"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_save_session"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/button_primary"
+                android:text="Guardar Sesión"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <!-- Nota sobre campos obligatorios -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* Campos obligatorios"
+            android:textColor="#9E9E9E"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+
+</ScrollView>

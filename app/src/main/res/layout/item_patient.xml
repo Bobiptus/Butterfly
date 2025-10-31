@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_background"
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <!-- Nombre del paciente -->
+    <TextView
+        android:id="@+id/tv_patient_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del Paciente"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Resumen del paciente (edad, contacto) -->
+    <TextView
+        android:id="@+id/tv_patient_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="25 años • 555-1234"
+        android:textSize="14sp"
+        android:textColor="#757575"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Motivo inicial de consulta -->
+    <TextView
+        android:id="@+id/tv_initial_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ansiedad generalizada y problemas de sueño..."
+        android:textSize="14sp"
+        android:textColor="#424242"
+        android:layout_marginBottom="8dp"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Fecha de última actualización -->
+    <TextView
+        android:id="@+id/tv_last_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizado: 2024-01-15"
+        android:textSize="12sp"
+        android:textColor="#9E9E9E"
+        android:gravity="end" />
+
+</LinearLayout>
